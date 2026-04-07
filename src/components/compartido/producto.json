@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_compartido_productos",
+  "info": {
+    "displayName": "Producto"
+  },
+  "options": {},
+  "attributes": {
+    "Nombre": {
+      "type": "string"
+    },
+    "Descripcion": {
+      "type": "text"
+    },
+    "presentado": {
+      "type": "boolean"
+    },
+    "Foto_Producto": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

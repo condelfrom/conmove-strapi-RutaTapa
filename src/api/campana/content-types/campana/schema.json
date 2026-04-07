@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "campanas",
+  "info": {
+    "singularName": "campana",
+    "pluralName": "campanas",
+    "displayName": "Campaña"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nombre": {
+      "type": "string"
+    },
+    "Organizador": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Nombre"
+    },
+    "Configuracion_Global": {
+      "type": "json"
+    },
+    "eventos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::evento.evento",
+      "mappedBy": "campana"
+    },
+    "Tipo": {
+      "type": "enumeration",
+      "enum": [
+        "Gastronomia"
+      ]
+    }
+  }
+}

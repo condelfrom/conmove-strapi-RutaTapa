@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_compartido_contactos",
+  "info": {
+    "displayName": "Contacto",
+    "icon": "phone"
+  },
+  "options": {},
+  "attributes": {
+    "direccion": {
+      "type": "string"
+    },
+    "telefono_local": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "participacion_enventos",
+  "info": {
+    "singularName": "participacion-envento",
+    "pluralName": "participacion-enventos",
+    "displayName": "Participacion_Local"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Producto_Presentado": {
+      "type": "component",
+      "component": "compartido.producto",
+      "repeatable": true
+    },
+    "Categoria": {
+      "type": "string"
+    },
+    "local": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::local.local",
+      "mappedBy": "participacion_local"
+    },
+    "votos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::voto.voto",
+      "mappedBy": "participacion_local"
+    },
+    "evento": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::evento.evento",
+      "inversedBy": "participacion_locals"
+    }
+  }
+}

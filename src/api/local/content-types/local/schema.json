@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "locals",
+  "info": {
+    "singularName": "local",
+    "pluralName": "locals",
+    "displayName": "Local"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nombre": {
+      "type": "string"
+    },
+    "Contacto": {
+      "type": "component",
+      "component": "compartido.contacto",
+      "repeatable": true
+    },
+    "participacion_local": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::participacion-envento.participacion-envento",
+      "inversedBy": "local"
+    },
+    "lat": {
+      "type": "string"
+    },
+    "lng": {
+      "type": "string"
+    },
+    "coordenadas": {
+      "type": "json"
+    }
+  }
+}

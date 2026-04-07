@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "eventos",
+  "info": {
+    "singularName": "evento",
+    "pluralName": "eventos",
+    "displayName": "Evento"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "campana": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::campana.campana",
+      "inversedBy": "eventos"
+    },
+    "Nombre": {
+      "type": "string"
+    },
+    "Tipo": {
+      "type": "enumeration",
+      "enum": [
+        "Tapas"
+      ]
+    },
+    "Fecha_Incio": {
+      "type": "date"
+    },
+    "Fecha_Fin": {
+      "type": "date"
+    },
+    "mapa": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "Estado": {
+      "type": "enumeration",
+      "enum": [
+        "Borrador",
+        "En_Preparacion",
+        "Activo",
+        "Finalizado",
+        "Sorteo",
+        "Sorteo_Realizado"
+      ]
+    },
+    "participacion_usuarios": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::participacion-usuario.participacion-usuario",
+      "mappedBy": "evento"
+    },
+    "participacion_locals": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::participacion-envento.participacion-envento",
+      "mappedBy": "evento"
+    },
+    "Localidad": {
+      "type": "string"
+    }
+  }
+}

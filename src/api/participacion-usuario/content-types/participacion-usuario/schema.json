@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "participacion_usuarios",
+  "info": {
+    "singularName": "participacion-usuario",
+    "pluralName": "participacion-usuarios",
+    "displayName": "Participacion_Usuario"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ID_Pasaporte": {
+      "type": "string",
+      "unique": true
+    },
+    "Foto_Sello": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Opt_Sorteo": {
+      "type": "boolean"
+    },
+    "evento": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::evento.evento",
+      "inversedBy": "participacion_usuarios"
+    },
+    "voto": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::voto.voto",
+      "inversedBy": "participacion_usuario"
+    },
+    "Nombre_Participante": {
+      "type": "string"
+    },
+    "Telefono_Contacto": {
+      "type": "string"
+    },
+    "Consentimiento_Privacidad": {
+      "type": "boolean"
+    }
+  }
+}
