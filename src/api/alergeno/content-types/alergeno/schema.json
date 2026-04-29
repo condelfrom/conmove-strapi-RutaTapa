@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "alergenos",
+  "info": {
+    "singularName": "alergeno",
+    "pluralName": "alergenos",
+    "displayName": "Alergeno"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "icono": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "participacion_local": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::participacion-envento.participacion-envento",
+      "inversedBy": "alergenos"
+    },
+    "tiene_adecuacion": {
+      "type": "boolean"
+    },
+    "explicacion_adecuacion": {
+      "type": "text"
+    }
+  }
+}

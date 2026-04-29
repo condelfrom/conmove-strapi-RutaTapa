@@ -467,6 +467,41 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAlergenoAlergeno extends Struct.CollectionTypeSchema {
+  collectionName: 'alergenos';
+  info: {
+    displayName: 'Alergeno';
+    pluralName: 'alergenos';
+    singularName: 'alergeno';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    explicacion_adecuacion: Schema.Attribute.Text;
+    icono: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::alergeno.alergeno'
+    > &
+      Schema.Attribute.Private;
+    nombre: Schema.Attribute.String;
+    participacion_local: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::participacion-envento.participacion-envento'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    tiene_adecuacion: Schema.Attribute.Boolean;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCampanaCampana extends Struct.CollectionTypeSchema {
   collectionName: 'campanas';
   info: {
@@ -598,11 +633,13 @@ export interface ApiParticipacionEnventoParticipacionEnvento
     draftAndPublish: true;
   };
   attributes: {
+    alergenos: Schema.Attribute.Relation<'oneToMany', 'api::alergeno.alergeno'>;
     Categoria: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     evento: Schema.Attribute.Relation<'manyToOne', 'api::evento.evento'>;
+    Horario: Schema.Attribute.Text;
     local: Schema.Attribute.Relation<'oneToOne', 'api::local.local'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -1203,6 +1240,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::alergeno.alergeno': ApiAlergenoAlergeno;
       'api::campana.campana': ApiCampanaCampana;
       'api::evento.evento': ApiEventoEvento;
       'api::local.local': ApiLocalLocal;

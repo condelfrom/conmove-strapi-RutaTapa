@@ -36,6 +36,15 @@
       "relation": "manyToOne",
       "target": "api::evento.evento",
       "inversedBy": "participacion_locals"
+    },
+    "Horario": {
+      "type": "text"
+    },
+    "alergenos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::alergeno.alergeno",
+      "mappedBy": "participacion_local"
     }
   }
 }
