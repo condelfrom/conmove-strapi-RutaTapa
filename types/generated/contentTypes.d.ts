@@ -573,6 +573,7 @@ export interface ApiLocalLocal extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::local.local'> &
       Schema.Attribute.Private;
+    Logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     Nombre: Schema.Attribute.String;
     participacion_local: Schema.Attribute.Relation<
       'oneToOne',

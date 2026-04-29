@@ -33,6 +33,16 @@
     },
     "coordenadas": {
       "type": "json"
+    },
+    "Logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }
