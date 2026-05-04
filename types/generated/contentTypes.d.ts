@@ -481,7 +481,6 @@ export interface ApiAlergenoAlergeno extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    explicacion_adecuacion: Schema.Attribute.Text;
     icono: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -495,7 +494,6 @@ export interface ApiAlergenoAlergeno extends Struct.CollectionTypeSchema {
       'api::participacion-envento.participacion-envento'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    tiene_adecuacion: Schema.Attribute.Boolean;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -610,8 +608,8 @@ export interface ApiLocalLocal extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     Logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     Nombre: Schema.Attribute.String;
-    participacion_local: Schema.Attribute.Relation<
-      'oneToOne',
+    participacion_locals: Schema.Attribute.Relation<
+      'oneToMany',
       'api::participacion-envento.participacion-envento'
     >;
     publishedAt: Schema.Attribute.DateTime;
@@ -638,9 +636,10 @@ export interface ApiParticipacionEnventoParticipacionEnvento
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Descripcion_Adecuacion: Schema.Attribute.Text;
     evento: Schema.Attribute.Relation<'manyToOne', 'api::evento.evento'>;
     Horario: Schema.Attribute.Text;
-    local: Schema.Attribute.Relation<'oneToOne', 'api::local.local'>;
+    local: Schema.Attribute.Relation<'manyToOne', 'api::local.local'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -652,6 +651,7 @@ export interface ApiParticipacionEnventoParticipacionEnvento
       true
     >;
     publishedAt: Schema.Attribute.DateTime;
+    Tiene_Adecuacion: Schema.Attribute.Boolean;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

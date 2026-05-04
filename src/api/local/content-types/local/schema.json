@@ -19,11 +19,11 @@
       "component": "compartido.contacto",
       "repeatable": true
     },
-    "participacion_local": {
+    "participacion_locals": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::participacion-envento.participacion-envento",
-      "inversedBy": "local"
+      "mappedBy": "local"
     },
     "lat": {
       "type": "string"

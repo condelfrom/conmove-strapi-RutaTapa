@@ -21,9 +21,9 @@
     },
     "local": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "api::local.local",
-      "mappedBy": "participacion_local"
+      "inversedBy": "participacion_locals"
     },
     "votos": {
       "type": "relation",
@@ -45,6 +45,12 @@
       "relation": "oneToMany",
       "target": "api::alergeno.alergeno",
       "mappedBy": "participacion_local"
+    },
+    "Tiene_Adecuacion": {
+      "type": "boolean"
+    },
+    "Descripcion_Adecuacion": {
+      "type": "text"
     }
   }
 }
