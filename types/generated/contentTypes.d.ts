@@ -481,6 +481,7 @@ export interface ApiAlergenoAlergeno extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    explicacion_adecuacion: Schema.Attribute.Text;
     icono: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -494,6 +495,8 @@ export interface ApiAlergenoAlergeno extends Struct.CollectionTypeSchema {
       'api::participacion-envento.participacion-envento'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    tiene_adecuacion: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
