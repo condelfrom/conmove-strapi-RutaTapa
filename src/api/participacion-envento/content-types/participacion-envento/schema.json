@@ -42,9 +42,8 @@
     },
     "alergenos": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::alergeno.alergeno",
-      "mappedBy": "participacion_local"
+      "relation": "manyToMany",
+      "target": "api::alergeno.alergeno"
     },
     "Tiene_Adecuacion": {
       "type": "boolean"

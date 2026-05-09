@@ -23,19 +23,6 @@
         "videos",
         "audios"
       ]
-    },
-    "participacion_local": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::participacion-envento.participacion-envento",
-      "inversedBy": "alergenos"
-    },
-    "tiene_adecuacion": {
-      "type": "boolean",
-      "default": false
-    },
-    "explicacion_adecuacion": {
-      "type": "text"
     }
   }
 }
