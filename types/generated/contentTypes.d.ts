@@ -645,6 +645,7 @@ export interface ApiParticipacionEnventoParticipacionEnvento
       'api::participacion-envento.participacion-envento'
     > &
       Schema.Attribute.Private;
+    orden_lista: Schema.Attribute.Integer;
     Producto_Presentado: Schema.Attribute.Component<
       'compartido.producto',
       true

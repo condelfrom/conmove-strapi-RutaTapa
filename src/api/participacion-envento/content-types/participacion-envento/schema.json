@@ -50,6 +50,9 @@
     },
     "Descripcion_Adecuacion": {
       "type": "text"
+    },
+    "orden_lista": {
+      "type": "integer"
     }
   }
 }
