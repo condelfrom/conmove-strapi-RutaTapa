@@ -655,6 +655,7 @@ export interface ApiParticipacionEnventoParticipacionEnvento
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    url_resenya: Schema.Attribute.Text;
     votos: Schema.Attribute.Relation<'oneToMany', 'api::voto.voto'>;
   };
 }

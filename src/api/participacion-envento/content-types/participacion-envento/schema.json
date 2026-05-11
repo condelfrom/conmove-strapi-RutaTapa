@@ -53,6 +53,9 @@
     },
     "orden_lista": {
       "type": "integer"
+    },
+    "url_resenya": {
+      "type": "text"
     }
   }
 }
