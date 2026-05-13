@@ -56,6 +56,9 @@
     },
     "url_resenya": {
       "type": "text"
+    },
+    "url_maps": {
+      "type": "text"
     }
   }
 }
