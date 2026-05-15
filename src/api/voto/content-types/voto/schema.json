@@ -22,6 +22,9 @@
       "relation": "oneToOne",
       "target": "api::participacion-usuario.participacion-usuario",
       "mappedBy": "voto"
+    },
+    "Voto_Valido": {
+      "type": "boolean"
     }
   }
 }
