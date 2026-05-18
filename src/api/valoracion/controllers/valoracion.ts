@@ -32,12 +32,7 @@ export default factories.createCoreController('api::valoracion.valoracion', ({ s
     }) as ValoracionDoc | null;
 
     if (existing) {
-      await strapi.documents('api::valoracion.valoracion').update({
-        documentId: existing.documentId,
-        data: { Estrellas },
-        status: 'published',
-      });
-      return ctx.send({ message: 'Valoración actualizada', meta: { updated: true } });
+      return ctx.badRequest('Ya has valorado esta tapa con este pasaporte');
     }
 
     await strapi.documents('api::valoracion.valoracion').create({
