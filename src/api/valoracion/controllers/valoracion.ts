@@ -11,8 +11,10 @@ export default factories.createCoreController('api::valoracion.valoracion', ({ s
 
   /** POST /api/valoraciones/enviar — upsert por pasaporte + participacion */
   async enviar(ctx: Context) {
-    const body = ctx.request.body as { data?: { ID_Pasaporte?: string; Estrellas?: number; participacion_local?: string } };
-    const { ID_Pasaporte, Estrellas, participacion_local } = body?.data ?? {};
+    const body = (ctx.request.body as { data?: Record<string, unknown> })?.data ?? {};
+    const ID_Pasaporte = String(body.ID_Pasaporte ?? '');
+    const Estrellas = Number(body.Estrellas ?? 0);
+    const participacion_local = String(body.participacion_local ?? '');
 
     if (!ID_Pasaporte || !Estrellas || !participacion_local) {
       return ctx.badRequest('Faltan campos requeridos: ID_Pasaporte, Estrellas, participacion_local');
@@ -41,7 +43,7 @@ export default factories.createCoreController('api::valoracion.valoracion', ({ s
       data: {
         Id_pasaporte: ID_Pasaporte,
         Estrellas,
-        participacion_local: { connect: [participacion_local] },
+        participacion_local,
         publishedAt: new Date().toISOString(),
       },
     });
