@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "valoraciones",
+  "info": {
+    "singularName": "valoracion",
+    "pluralName": "valoraciones",
+    "displayName": "Valoracion"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Estrellas": {
+      "type": "integer",
+      "required": true,
+      "min": 1,
+      "max": 5
+    },
+    "ID_Pasaporte": {
+      "type": "string",
+      "required": true
+    },
+    "participacion_local": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::participacion-envento.participacion-envento",
+      "inversedBy": "valoraciones"
+    }
+  }
+}

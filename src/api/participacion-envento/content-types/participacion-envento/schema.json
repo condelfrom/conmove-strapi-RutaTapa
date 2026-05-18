@@ -59,6 +59,12 @@
     },
     "url_maps": {
       "type": "text"
+    },
+    "valoraciones": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::valoracion.valoracion",
+      "mappedBy": "participacion_local"
     }
   }
 }
