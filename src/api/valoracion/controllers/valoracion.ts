@@ -35,6 +35,7 @@ export default factories.createCoreController('api::valoracion.valoracion', ({ s
       await strapi.documents('api::valoracion.valoracion').update({
         documentId: existing.documentId,
         data: { Estrellas },
+        status: 'published',
       });
       return ctx.send({ message: 'Valoración actualizada', meta: { updated: true } });
     }
@@ -44,8 +45,9 @@ export default factories.createCoreController('api::valoracion.valoracion', ({ s
         Id_pasaporte: ID_Pasaporte,
         Estrellas,
         participacion_local,
-        publishedAt: new Date().toISOString(),
+        published: true,
       },
+      status: 'published',
     });
     return ctx.send({ message: 'Valoración enviada', meta: { updated: false } });
   },
