@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "valoracions",
+  "info": {
+    "singularName": "valoracion",
+    "pluralName": "valoracions",
+    "displayName": "Valoracion"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Estrellas": {
+      "type": "integer"
+    },
+    "Id_pasaporte": {
+      "type": "string"
+    },
+    "participacion_local": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::participacion-envento.participacion-envento",
+      "inversedBy": "valoracions"
+    }
+  }
+}
