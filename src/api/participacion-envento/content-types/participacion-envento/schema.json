@@ -40,6 +40,9 @@
     "Horario": {
       "type": "text"
     },
+    "Horario_Va": {
+      "type": "text"
+    },
     "alergenos": {
       "type": "relation",
       "relation": "manyToMany",
@@ -49,6 +52,9 @@
       "type": "boolean"
     },
     "Descripcion_Adecuacion": {
+      "type": "text"
+    },
+    "Descripcion_Adecuacion_Va": {
       "type": "text"
     },
     "orden_lista": {

@@ -8,7 +8,13 @@
     "Nombre": {
       "type": "string"
     },
+    "Nombre_Va": {
+      "type": "string"
+    },
     "Descripcion": {
+      "type": "text"
+    },
+    "Descripcion_Va": {
       "type": "text"
     },
     "presentado": {
