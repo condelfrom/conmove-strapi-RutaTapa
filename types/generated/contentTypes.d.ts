@@ -489,6 +489,7 @@ export interface ApiAlergenoAlergeno extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     nombre: Schema.Attribute.String;
+    nombre_va: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -636,8 +637,10 @@ export interface ApiParticipacionEnventoParticipacionEnvento
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Descripcion_Adecuacion: Schema.Attribute.Text;
+    Descripcion_Adecuacion_Va: Schema.Attribute.Text;
     evento: Schema.Attribute.Relation<'manyToOne', 'api::evento.evento'>;
     Horario: Schema.Attribute.Text;
+    Horario_Va: Schema.Attribute.Text;
     local: Schema.Attribute.Relation<'manyToOne', 'api::local.local'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
