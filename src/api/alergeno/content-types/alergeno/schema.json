@@ -14,6 +14,9 @@
     "nombre": {
       "type": "string"
     },
+    "nombre_va": {
+      "type": "string"
+    },
     "icono": {
       "type": "media",
       "multiple": false,

@@ -489,6 +489,7 @@ export interface ApiAlergenoAlergeno extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     nombre: Schema.Attribute.String;
+    nombre_va: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -636,8 +637,10 @@ export interface ApiParticipacionEnventoParticipacionEnvento
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Descripcion_Adecuacion: Schema.Attribute.Text;
+    Descripcion_Adecuacion_Va: Schema.Attribute.Text;
     evento: Schema.Attribute.Relation<'manyToOne', 'api::evento.evento'>;
     Horario: Schema.Attribute.Text;
+    Horario_Va: Schema.Attribute.Text;
     local: Schema.Attribute.Relation<'manyToOne', 'api::local.local'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -657,6 +660,10 @@ export interface ApiParticipacionEnventoParticipacionEnvento
       Schema.Attribute.Private;
     url_maps: Schema.Attribute.Text;
     url_resenya: Schema.Attribute.Text;
+    valoracions: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::valoracion.valoracion'
+    >;
     votos: Schema.Attribute.Relation<'oneToMany', 'api::voto.voto'>;
   };
 }
@@ -694,6 +701,39 @@ export interface ApiParticipacionUsuarioParticipacionUsuario
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     voto: Schema.Attribute.Relation<'oneToOne', 'api::voto.voto'>;
+  };
+}
+
+export interface ApiValoracionValoracion extends Struct.CollectionTypeSchema {
+  collectionName: 'valoracions';
+  info: {
+    displayName: 'Valoracion';
+    pluralName: 'valoracions';
+    singularName: 'valoracion';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Estrellas: Schema.Attribute.Integer;
+    Id_pasaporte: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::valoracion.valoracion'
+    > &
+      Schema.Attribute.Private;
+    participacion_local: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::participacion-envento.participacion-envento'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1249,6 +1289,7 @@ declare module '@strapi/strapi' {
       'api::local.local': ApiLocalLocal;
       'api::participacion-envento.participacion-envento': ApiParticipacionEnventoParticipacionEnvento;
       'api::participacion-usuario.participacion-usuario': ApiParticipacionUsuarioParticipacionUsuario;
+      'api::valoracion.valoracion': ApiValoracionValoracion;
       'api::voto.voto': ApiVotoVoto;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

@@ -40,6 +40,9 @@
     "Horario": {
       "type": "text"
     },
+    "Horario_Va": {
+      "type": "text"
+    },
     "alergenos": {
       "type": "relation",
       "relation": "manyToMany",
@@ -51,6 +54,9 @@
     "Descripcion_Adecuacion": {
       "type": "text"
     },
+    "Descripcion_Adecuacion_Va": {
+      "type": "text"
+    },
     "orden_lista": {
       "type": "integer"
     },
@@ -60,7 +66,7 @@
     "url_maps": {
       "type": "text"
     },
-    "valoraciones": {
+    "valoracions": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::valoracion.valoracion",

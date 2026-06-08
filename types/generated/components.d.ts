@@ -19,11 +19,13 @@ export interface CompartidoProducto extends Struct.ComponentSchema {
   };
   attributes: {
     Descripcion: Schema.Attribute.Text;
+    Descripcion_Va: Schema.Attribute.Text;
     Foto_Producto: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
     Nombre: Schema.Attribute.String;
+    Nombre_Va: Schema.Attribute.String;
     presentado: Schema.Attribute.Boolean;
   };
 }
